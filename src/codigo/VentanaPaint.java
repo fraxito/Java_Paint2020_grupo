@@ -6,6 +6,7 @@
 package codigo;
 
 import codigo.formas.Circulo;
+import codigo.formas.Estrella;
 import codigo.formas.Forma;
 import codigo.formas.Pentagono;
 import java.awt.Color;
@@ -90,7 +91,7 @@ public class VentanaPaint extends javax.swing.JFrame {
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 358, Short.MAX_VALUE)
+            .addGap(0, 484, Short.MAX_VALUE)
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -101,22 +102,22 @@ public class VentanaPaint extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
+                        .addComponent(panelColores1, javax.swing.GroupLayout.PREFERRED_SIZE, 513, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addContainerGap(24, Short.MAX_VALUE))
+                    .addGroup(layout.createSequentialGroup()
                         .addComponent(herramientas1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(26, 26, 26)
-                        .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(panelColores1, javax.swing.GroupLayout.PREFERRED_SIZE, 513, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 12, Short.MAX_VALUE)))
-                .addContainerGap())
+                        .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(26, 26, 26)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(herramientas1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 21, Short.MAX_VALUE)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(26, 26, 26)
+                        .addComponent(herramientas1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(panelColores1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
@@ -131,7 +132,8 @@ public class VentanaPaint extends javax.swing.JFrame {
                 break;
             case 1 : miCirculo.dibujate(bufferGraphics, evt.getX());break;
             case 5 : miForma.dibujate(bufferGraphics, evt.getX(), evt.getY());break;
-                
+            case 256 : miForma.dibujate(bufferGraphics, evt.getX(), evt.getY());break;
+                  
         }
         repaint(0,0,1,1); 
     }//GEN-LAST:event_jPanel1MouseDragged
@@ -144,7 +146,10 @@ public class VentanaPaint extends javax.swing.JFrame {
                 break;
             case 5 : miForma = new Pentagono(evt.getX(), evt.getY(), 5, panelColores1.colorSeleccionado , false);
                      miForma.dibujate(bufferGraphics, evt.getX(), evt.getY());
-                break;            
+                break;  
+            case 256 : miForma = new Estrella(evt.getX(), evt.getY(), 256, panelColores1.colorSeleccionado , false);
+                     miForma.dibujate(bufferGraphics, evt.getX(), evt.getY());
+                break; 
         }
     }//GEN-LAST:event_jPanel1MousePressed
 
