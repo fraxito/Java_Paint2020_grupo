@@ -20,8 +20,7 @@ public class VentanaPaint extends javax.swing.JFrame {
     BufferedImage buffer = null;
     
     Graphics2D bufferGraphics , jpanelGraphics= null;
-    
-    int herramientaSeleccionada = 0;
+
     
     Circulo miCirculo = null;
     
@@ -122,7 +121,7 @@ public class VentanaPaint extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jPanel1MouseDragged(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel1MouseDragged
-        switch(herramientaSeleccionada){
+        switch(herramientas1.formaElegida){
             case 0 : 
                 bufferGraphics.setColor(panelColores1.colorSeleccionado);
                 bufferGraphics.fillOval(evt.getX(), evt.getY(), 4, 4);
